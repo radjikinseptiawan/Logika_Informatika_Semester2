@@ -15,16 +15,17 @@ berat_paket_gram = berat_paket * 1000
 jarak_pengiriman_meter = jarak_pengiriman * 1000
 
 # Melakukan conditional processing pada paket
-total_pembayaran = 0
+total_pembayaran = biaya_dasar
 if berat_paket_gram > 5000:
     total_pembayaran += biaya_dasar + 5000
-elif jarak_pengiriman_meter > 10000:
+
+if jarak_pengiriman_meter > 10000:
     total_pembayaran += biaya_dasar + 8000
-elif berat_paket_gram >= 5000 and jarak_pengiriman_meter >= 10000:    
-    total_pembayaran += biaya_dasar + 5000 + 8000
-elif paket_layanan.lower() == 'express':
+
+if paket_layanan.lower() == 'express':
     total_pembayaran += biaya_dasar + 20000
-elif paket_layanan.lower() == 'member':
+
+if paket_layanan.lower() == 'member':
     total_pembayaran += biaya_dasar * 10/100
 
 # Menghasilkan output pengguna
